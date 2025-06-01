@@ -1,3 +1,3 @@
 export interface IProductRateAgent {
-  calculate: () => number;
+  calculate: (input: any) => string;
 }

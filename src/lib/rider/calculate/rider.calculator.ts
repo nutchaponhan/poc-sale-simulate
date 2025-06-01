@@ -16,7 +16,7 @@ export class RiderCalculator implements ICalculator {
     let totalPremium = 0;
 
     for (const riderProductRateAgent of this.riderProductRateAgents) {
-      totalPremium += riderProductRateAgent.calculate();
+      totalPremium += Number(riderProductRateAgent.calculate());
     }
 
     return totalPremium;

@@ -20,7 +20,7 @@ export class PlanProductRateAgent implements IProductRateAgent {
     }
   }
 
-  calculate(): number {
-    return this.productRateAgent.calculate();
+  calculate(): string {
+    return this.productRateAgent.calculate({});
   }
 }

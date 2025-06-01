@@ -16,7 +16,7 @@ export class PlanCalculator implements ICalculator {
     let totalPremium = 0;
 
     for (const planProductRateAgent of this.planProductRateAgents) {
-      totalPremium += planProductRateAgent.calculate();
+      totalPremium += Number(planProductRateAgent.calculate());
     }
 
     return totalPremium;

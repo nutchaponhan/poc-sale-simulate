@@ -4,7 +4,12 @@ import { IProductRateAgent } from '../../interface/product-rate-agent.interface'
 export class UWBProductRateAgent implements IProductRateAgent {
   constructor(private plan: PlanProduct) {}
 
-  calculate(): number {
-    return 1000;
+  calculate(_input: {
+    insuredAge: number;
+    mode: number;
+    occupationType: string;
+    riderSum: number;
+  }): string {
+    return '1000';
   }
 }

@@ -20,7 +20,13 @@ export class RiderProductRateAgent implements IProductRateAgent {
     }
   }
 
-  calculate(): number {
-    return this.productRateAgent.calculate();
+  calculate(): string {
+    // TODO: add input from lead, plan, etc.
+    return this.productRateAgent.calculate({
+      insuredAge: 25,
+      mode: 2,
+      occupationType: '2',
+      riderSum: 50000,
+    });
   }
 }
