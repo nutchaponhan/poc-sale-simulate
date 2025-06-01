@@ -1,6 +1,7 @@
 {
   "rider": {
     "rider": "AC01",
+    "code": "AC01",
     "displayName": "อ.1",
     "age": {
       "min": "1m",
