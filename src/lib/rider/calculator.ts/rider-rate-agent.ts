@@ -1,8 +1,9 @@
-import { RateAgent } from './rate-agent/rate-agent';
-import { AC01RateAgent } from './rate-agent/AC01.rate-agent';
-import { RiderInput } from './rider-calculator';
+import { RateAgent } from '../../core/rate-agent';
+import { RiderInput } from '../../interface/rider.input';
 
-export class RiderRateAgent {
+import { AC01RateAgent } from '../rate-agent/AC01.rate-agent';
+
+export class RiderRateAgent implements RateAgent {
   private rateAgent: RateAgent;
 
   constructor(rider: RiderInput) {

@@ -1,16 +1,12 @@
-import { Calculator } from 'src/interfaces/calculator';
+import { Calculator } from '../../core/calculator';
 
 import { RiderRateAgent } from './rider-rate-agent';
 
-export interface RiderInput {
-  code: string;
-}
-
 export class RiderCalculator implements Calculator {
-  private riderRateAgents: Array<RiderRateAgent> = [];
+  constructor(private riderRateAgents: Array<RiderRateAgent> = []) {}
 
-  add(rider: RiderInput): RiderCalculator {
-    this.riderRateAgents.push(new RiderRateAgent(rider));
+  add(rider: RiderRateAgent): RiderCalculator {
+    this.riderRateAgents.push(rider);
     return this;
   }
 
