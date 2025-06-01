@@ -1,10 +1,11 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 
-import { Products, RiderProcessor } from 'src/lib/main';
+import { Products, RiderProcessor, PlanProcessor } from 'src/lib/main';
 
 interface PremiumCalculationRequest {
-  products: Array<Products>;
+  plans: Array<Products>;
+  riders: Array<Products>;
 }
 
 interface PremiumCalculationResponse {
@@ -25,14 +26,19 @@ export class PremiumController {
   calculatePremium(
     @Body() request: PremiumCalculationRequest,
   ): PremiumCalculationResponse {
-    // build services
+    // build processors
     const riderProcessor = new RiderProcessor();
+    const planProcessor = new PlanProcessor();
+
+    const plans = request.plans;
+    const riders = request.riders;
 
     // calculate premium
-    const riderPremium = riderProcessor.process(request.products);
+    const planPremium = planProcessor.process(plans);
+    const riderPremium = riderProcessor.process(riders);
 
     return {
-      premium: riderPremium,
+      premium: planPremium + riderPremium,
     };
   }
 }

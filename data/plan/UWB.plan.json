@@ -1,6 +1,8 @@
 {
   "plan": {
     "name": "UWB",
+    "display": "ประกันควบการลงทุน UWB",
+    "code": "UWB",
     "type": "UL",
     "status": "active",
     "age": {
