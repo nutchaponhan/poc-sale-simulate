@@ -1,11 +1,11 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 
-import { Products, RiderProcessor, PlanProcessor } from 'src/lib/main';
+import { IProduct, RiderProcessor, PlanProcessor } from 'src/lib/main';
 
 interface PremiumCalculationRequest {
-  plans: Array<Products>;
-  riders: Array<Products>;
+  plans: Array<IProduct>;
+  riders: Array<IProduct>;
 }
 
 interface PremiumCalculationResponse {

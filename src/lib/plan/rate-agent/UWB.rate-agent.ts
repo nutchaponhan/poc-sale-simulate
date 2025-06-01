@@ -1,8 +1,8 @@
-import { PlanInput } from '../../interface/plan.input';
-import { RateAgent } from '../../core/rate-agent';
+import { PlanProduct } from '../../core/plan.product';
+import { IProductRateAgent } from '../../interface/product-rate-agent.interface';
 
-export class UWBRateAgent implements RateAgent {
-  constructor(private plan: PlanInput) {}
+export class UWBProductRateAgent implements IProductRateAgent {
+  constructor(private plan: PlanProduct) {}
 
   calculate(): number {
     return 1000;
