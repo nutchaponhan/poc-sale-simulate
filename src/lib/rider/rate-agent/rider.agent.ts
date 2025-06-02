@@ -4,10 +4,8 @@ export class RiderAgent {
     while (s.length < n) {
       s = '0' + s;
     }
-
     return s;
   }
-
   rshift(s, n, _k) {
     s = s + '';
     s = s.substring(0, s.length - n);
@@ -18,7 +16,6 @@ export class RiderAgent {
     }
     return s;
   }
-
   lshift(s, n, _k = 0) {
     s = s + '';
     s = s.substring(n);
@@ -27,7 +24,6 @@ export class RiderAgent {
       s = s + '0';
       i++;
     }
-
     return s;
   }
 }

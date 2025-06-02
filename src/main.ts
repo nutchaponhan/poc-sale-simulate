@@ -4,6 +4,8 @@ import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, OpenAPIObject, SwaggerModule } from '@nestjs/swagger';
 import { TransformInterceptor } from './common/interceptors/transform.interceptor';
 import { ConfigService } from '@nestjs/config';
+import { HttpAdapterHost } from '@nestjs/core';
+import { AllExceptionsFilter } from './common/filters/all-exceptions.filter';
 
 function createSwagger(
   app: INestApplication,
@@ -22,6 +24,10 @@ function createSwagger(
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
+  const httpAdapter = app.get(HttpAdapterHost);
+
+  // Global exception filter
+  app.useGlobalFilters(new AllExceptionsFilter(httpAdapter));
 
   // Global prefix
   app.setGlobalPrefix(configService.get<string>('app.apiPrefix', 'api'));

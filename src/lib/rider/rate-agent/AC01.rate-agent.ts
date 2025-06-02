@@ -29,6 +29,8 @@ export class AC01ProductRateAgent
       riderSum: Number(rider.premium),
     };
 
+    console.log({ input, config: this.config });
+
     try {
       let amount: string = '000000';
       let fact: string = '000';
@@ -42,6 +44,8 @@ export class AC01ProductRateAgent
       amount = this.config['amtRate'][input.occupationType].value;
       fact = this.config['pmFact'][input.mode].value;
 
+      console.log({ amount, fact, input });
+
       // logic calculate
       amount = String((Number(amount) / 10) * (Number(fact) / 100));
       amount = Number(amount).toFixed(2);
@@ -53,11 +57,16 @@ export class AC01ProductRateAgent
       amount = String(parseInt(String(Number(amount) * 100), 10));
       amount = this.rshift(amount, 1, 0);
       amount = this.lshift(amount, 1, 0);
+
+      console.log({ amount, fact, input });
+
       input.riderSum = this.rshift(input.riderSum, 4, 0);
       tmpPrem = String(input.riderSum * (Number(amount) / 100));
       tmpPrem = Number(tmpPrem).toFixed(2);
       tmpPrem = tmpPrem.substring(0, tmpPrem.length - 3);
       tmpPrem = this.setlen(tmpPrem, 9);
+
+      console.log({ tmpPrem, input });
       result = tmpPrem;
 
       return result;

@@ -19,6 +19,8 @@ export class RiderCalculator implements ICalculator {
       totalPremium += Number(riderProductRateAgent.calculate());
     }
 
+    console.log({ totalPremium });
+
     return totalPremium;
   }
 }
