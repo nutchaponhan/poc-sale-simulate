@@ -23,13 +23,11 @@ export class AC01ProductRateAgent
 
   calculate(prospect: Prospect, rider: RiderProduct): string {
     const input = {
-      insuredAge: prospect.age,
-      mode: 1,
+      insuredAge: prospect.insuranceAge,
+      mode: prospect.paymentMode,
       occupationType: prospect.occupationType,
-      riderSum: Number(rider.premium),
+      riderSum: Number(rider.sumAssure),
     };
-
-    console.log({ input, config: this.config });
 
     try {
       let amount: string = '000000';
@@ -40,11 +38,9 @@ export class AC01ProductRateAgent
       if (input.mode == 3 || input.mode > 4 || input.occupationType > '3')
         return '000000';
 
-      // get amount and fact from rate file
-      amount = this.config['amtRate'][input.occupationType].value;
-      fact = this.config['pmFact'][input.mode].value;
-
-      console.log({ amount, fact, input });
+      // get amount and fact from config file
+      amount = this.config['amtRate'][input.occupationType].value; // change this
+      fact = this.config['pmFact'][input.mode].value; // change this
 
       // logic calculate
       amount = String((Number(amount) / 10) * (Number(fact) / 100));
@@ -57,16 +53,11 @@ export class AC01ProductRateAgent
       amount = String(parseInt(String(Number(amount) * 100), 10));
       amount = this.rshift(amount, 1, 0);
       amount = this.lshift(amount, 1, 0);
-
-      console.log({ amount, fact, input });
-
-      input.riderSum = this.rshift(input.riderSum, 4, 0);
-      tmpPrem = String(input.riderSum * (Number(amount) / 100));
+      input.riderSum = this.rshift(input.riderSum, 4, 0); // change this
+      tmpPrem = String(input.riderSum * (Number(amount) / 100)); // change this
       tmpPrem = Number(tmpPrem).toFixed(2);
       tmpPrem = tmpPrem.substring(0, tmpPrem.length - 3);
       tmpPrem = this.setlen(tmpPrem, 9);
-
-      console.log({ tmpPrem, input });
       result = tmpPrem;
 
       return result;

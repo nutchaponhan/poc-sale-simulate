@@ -1,5 +1,5 @@
+import { PlanProduct } from '../core/plan.product';
 import { IProcessor } from '../interface/processor.interface';
-import { IProduct } from '../interface/product.interface';
 import { Prospect } from '../prospect/prospect';
 
 import { PlanCalculator } from './calculate/plan.calculator';
@@ -12,7 +12,7 @@ export class PlanProcessor implements IProcessor {
     this.planCalculator = new PlanCalculator();
   }
 
-  process(prospect: Prospect, products: Array<IProduct>): number {
+  process(prospect: Prospect, products: Array<PlanProduct>): number {
     for (const product of products) {
       this.planCalculator.add(new PlanProductRateAgent(prospect, product));
     }

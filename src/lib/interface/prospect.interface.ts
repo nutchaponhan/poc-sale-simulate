@@ -5,4 +5,5 @@ export interface IProspect {
   occupationBusiness: string;
   occgroup: number;
   occupationType: string;
+  paymentMode: number;
 }

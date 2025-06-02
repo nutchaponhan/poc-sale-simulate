@@ -16,14 +16,7 @@ export class UWBProductRateAgent implements IProductRateAgent {
     return this;
   }
 
-  calculate(prospect: Prospect, _plan: PlanProduct): string {
-    const input = {
-      insuredAge: prospect.age,
-      mode: '1',
-      occupationType: prospect.occupationType,
-      riderSum: 10000,
-    };
-
-    return String(input.riderSum);
+  calculate(_prospect: Prospect, plan: PlanProduct): string {
+    return String(plan.rpp);
   }
 }

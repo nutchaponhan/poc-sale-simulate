@@ -13,7 +13,7 @@
     "sum": {
       "_comment": "mock min and max",
       "min": 0,
-      "max": 1000000000
+      "max": 999999999
     }
   }
 }
