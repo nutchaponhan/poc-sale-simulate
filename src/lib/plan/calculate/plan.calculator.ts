@@ -1,4 +1,7 @@
-import { ICalculator } from '../../interface/calculator.interface';
+import {
+  CalculatorResult,
+  ICalculator,
+} from '../../interface/calculator.interface';
 
 import { PlanProductRateAgent } from './plan.product-rate-agent';
 
@@ -12,13 +15,22 @@ export class PlanCalculator implements ICalculator {
     return this;
   }
 
-  calculate(): number {
-    let totalPremium = 0;
+  clear(): PlanCalculator {
+    this.planProductRateAgents = [];
+    return this;
+  }
+
+  calculate(): Record<string, CalculatorResult> {
+    const result = {};
 
     for (const planProductRateAgent of this.planProductRateAgents) {
-      totalPremium += Number(planProductRateAgent.calculate());
+      const premium = Number(planProductRateAgent.calculate());
+      result[planProductRateAgent.code] = {
+        code: planProductRateAgent.code,
+        premium,
+      };
     }
 
-    return totalPremium;
+    return result;
   }
 }

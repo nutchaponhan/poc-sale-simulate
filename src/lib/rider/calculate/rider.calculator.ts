@@ -1,4 +1,7 @@
-import { ICalculator } from '../../interface/calculator.interface';
+import {
+  CalculatorResult,
+  ICalculator,
+} from '../../interface/calculator.interface';
 
 import { RiderProductRateAgent } from './rider.product-rate-agent';
 
@@ -12,15 +15,22 @@ export class RiderCalculator implements ICalculator {
     return this;
   }
 
-  calculate(): number {
-    let totalPremium = 0;
+  clear(): RiderCalculator {
+    this.riderProductRateAgents = [];
+    return this;
+  }
+
+  calculate(): Record<string, CalculatorResult> {
+    const result = {};
 
     for (const riderProductRateAgent of this.riderProductRateAgents) {
-      totalPremium += Number(riderProductRateAgent.calculate());
+      const premium = Number(riderProductRateAgent.calculate());
+      result[riderProductRateAgent.code] = {
+        code: riderProductRateAgent.code,
+        premium,
+      };
     }
 
-    console.log({ totalPremium });
-
-    return totalPremium;
+    return result;
   }
 }

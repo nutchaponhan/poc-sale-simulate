@@ -1,11 +1,11 @@
-import { IProspect } from '../interface/prospect.interface';
+import { ProspectInput } from '../core/prospect.input';
 
 export class Prospect {
-  constructor(private data: IProspect) {
+  constructor(private data: ProspectInput) {
     return this.set(data);
   }
 
-  private set(prospect: IProspect): Prospect {
+  private set(prospect: ProspectInput): Prospect {
     this.data = {
       gender: prospect.gender,
       birthDate: prospect.birthDate,

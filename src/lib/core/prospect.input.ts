@@ -1,4 +1,4 @@
-export interface IProspect {
+export class ProspectInput {
   gender: string;
   birthDate: string;
   codeocctouw: string;

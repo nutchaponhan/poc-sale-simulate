@@ -1,20 +1,20 @@
 import { IProductRateAgent } from '../../interface/product-rate-agent.interface';
-import { PlanProduct } from '../../core/plan.product';
+import { PlanInput } from '../../core/plan.input';
 
 import { UWBProductRateAgent } from '../rate-agent/UWB.rate-agent';
-import { Prospect } from 'src/lib/prospect/prospect';
+import { ProspectInput } from 'src/lib/core/prospect.input';
 
 export class PlanProductRateAgent implements IProductRateAgent {
   private productRateAgent: IProductRateAgent;
 
   constructor(
-    private prospect: Prospect,
-    private plan: PlanProduct,
+    private prospect: ProspectInput,
+    private plan: PlanInput,
   ) {
     this.set(this.plan);
   }
 
-  private set(plan: PlanProduct) {
+  private set(plan: PlanInput) {
     switch (plan.code) {
       case 'UWB':
         this.productRateAgent = new UWBProductRateAgent();
@@ -22,6 +22,10 @@ export class PlanProductRateAgent implements IProductRateAgent {
       default:
         throw new Error(`Plan ${plan.code} not found`);
     }
+  }
+
+  get code(): string {
+    return this.plan.code;
   }
 
   calculate(): string {

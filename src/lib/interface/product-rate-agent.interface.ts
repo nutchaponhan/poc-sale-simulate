@@ -1,10 +1,10 @@
-import { PlanProduct } from '../core/plan.product';
-import { RiderProduct } from '../core/rider.product';
-import { Prospect } from '../prospect/prospect';
+import { PlanInput } from '../core/plan.input';
+import { RiderInput } from '../core/rider.input';
+import { ProspectInput } from '../core/prospect.input';
 
 export interface IProductRateAgent {
   calculate: (
-    prospect: Prospect,
-    product: RiderProduct | PlanProduct,
+    prospect: ProspectInput,
+    productInput: RiderInput | PlanInput,
   ) => string;
 }

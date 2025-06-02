@@ -1,19 +1,17 @@
 {
-  "plan": {
-    "name": "UWB",
-    "display": "ประกันควบการลงทุน UWB",
-    "code": "UWB",
-    "type": "UL",
-    "status": "active",
-    "age": {
-      "min": "1m",
-      "max": "99y"
-    },
-    "riders": ["AC01"],
-    "sum": {
-      "_comment": "mock min and max",
-      "min": 0,
-      "max": 999999999
-    }
+  "name": "UWB",
+  "display": "ประกันควบการลงทุน UWB",
+  "code": "UWB",
+  "type": "UL",
+  "status": "active",
+  "age": {
+    "min": "1m",
+    "max": "99y"
+  },
+  "riders": ["AC01"],
+  "sum": {
+    "_comment": "mock min and max",
+    "min": 0,
+    "max": 999999999
   }
 }

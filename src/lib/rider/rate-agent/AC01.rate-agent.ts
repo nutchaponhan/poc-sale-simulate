@@ -1,32 +1,43 @@
 import { IProductRateAgent } from '../../interface/product-rate-agent.interface';
-import { RiderProduct } from '../../core/rider.product';
-import { readRiderRateFile } from '../../utility/file';
+import { RiderInput } from '../../core/rider.input';
+import { readRiderProductFile, readRiderRateFile } from '../../utility/file';
 import { RiderAgent } from './rider.agent';
-import { Prospect } from '../../prospect/prospect';
-
+import { ACRiderProduct } from 'src/lib/core/rider/ac.rider.product';
+import { ProspectInput } from 'src/lib/core/prospect.input';
+import { Prospect } from 'src/lib/prospect/prospect';
 export class AC01ProductRateAgent
   extends RiderAgent
   implements IProductRateAgent
 {
   private config: any;
+  private riderProduct: ACRiderProduct;
 
   constructor() {
     super();
-    this.load('AC01.premium.json');
+    this.loadProduct('AC01.rider.json');
+    this.loadConfig('AC01.premium.json');
   }
 
-  load(asset: string) {
+  loadConfig(asset: string) {
     const data = readRiderRateFile(asset);
-    this.config = data.premiumRate;
-    return this;
+    this.config = data;
+    return;
   }
 
-  calculate(prospect: Prospect, rider: RiderProduct): string {
+  loadProduct(asset: string) {
+    const data = readRiderProductFile(asset);
+    this.riderProduct = data;
+    return;
+  }
+
+  calculate(pi: ProspectInput, ri: RiderInput): string {
+    const prospect = new Prospect(pi);
+
     const input = {
       insuredAge: prospect.insuranceAge,
       mode: prospect.paymentMode,
       occupationType: prospect.occupationType,
-      riderSum: Number(rider.sumAssure),
+      riderSum: Number(ri.sumAssure),
     };
 
     try {

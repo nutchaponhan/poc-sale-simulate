@@ -18,6 +18,12 @@ export function readRiderRateFile(rateFile: string): any {
   return data;
 }
 
+export function readRiderProductFile(productFile: string): any {
+  const filePath = path.join(process.cwd(), 'data', 'rider', productFile);
+  const data = read(filePath);
+  return data;
+}
+
 export function readPlanRateFile(rateFile: string): any {
   const filePath = path.join(process.cwd(), 'data', 'plan-rate', rateFile);
   const data = read(filePath);
