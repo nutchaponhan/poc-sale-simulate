@@ -1,5 +1,6 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import * as path from 'path';
 
 import {
   ProspectInput,
@@ -34,11 +35,15 @@ export class PremiumController {
     const plans = request.plans;
     const riders = request.riders;
 
+    const storagePath = path.join(process.cwd(), 'storage.db');
+
     // build processors
     const premiumProcessor = new PremiumProcessor(prospect, {
       plans,
       riders,
     });
+
+    premiumProcessor.load(storagePath);
 
     // calculate premium
     const result = premiumProcessor.process();
