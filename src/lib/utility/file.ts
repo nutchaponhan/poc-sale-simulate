@@ -17,3 +17,9 @@ export function readRiderRateFile(rateFile: string): any {
   const data = read(filePath);
   return data;
 }
+
+export function readPlanRateFile(rateFile: string): any {
+  const filePath = path.join(process.cwd(), 'data', 'plan-rate', rateFile);
+  const data = read(filePath);
+  return data;
+}

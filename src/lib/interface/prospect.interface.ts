@@ -1,0 +1,8 @@
+export interface IProspect {
+  gender: string;
+  birthDate: string;
+  codeocctouw: string;
+  occupationBusiness: string;
+  occgroup: number;
+  occupationType: string;
+}

@@ -2,18 +2,22 @@ import { IProductRateAgent } from '../../interface/product-rate-agent.interface'
 import { RiderProduct } from '../../core/rider.product';
 
 import { AC01ProductRateAgent } from '../rate-agent/AC01.rate-agent';
+import { Prospect } from 'src/lib/prospect/prospect';
 
-export class RiderProductRateAgent implements IProductRateAgent {
+export class RiderProductRateAgent {
   private productRateAgent: IProductRateAgent;
 
-  constructor(rider: RiderProduct) {
-    this.set(rider);
+  constructor(
+    private prospect: Prospect,
+    private rider: RiderProduct,
+  ) {
+    this.set(this.rider);
   }
 
   private set(rider: RiderProduct) {
     switch (rider.code) {
       case 'AC01':
-        this.productRateAgent = new AC01ProductRateAgent(rider);
+        this.productRateAgent = new AC01ProductRateAgent();
         break;
       default:
         throw new Error(`Rider ${rider.code} not found`);
@@ -21,12 +25,6 @@ export class RiderProductRateAgent implements IProductRateAgent {
   }
 
   calculate(): string {
-    // TODO: add input from lead, plan, etc.
-    return this.productRateAgent.calculate({
-      insuredAge: 25,
-      mode: 2,
-      occupationType: '2',
-      riderSum: 50000,
-    });
+    return this.productRateAgent.calculate(this.prospect, this.rider);
   }
 }

@@ -1,32 +1,34 @@
 import { IProductRateAgent } from '../../interface/product-rate-agent.interface';
 import { RiderProduct } from '../../core/rider.product';
 import { readRiderRateFile } from '../../utility/file';
-import { RiderAgent } from '../../core/rider.agent';
+import { RiderAgent } from './rider.agent';
+import { Prospect } from '../../prospect/prospect';
 
 export class AC01ProductRateAgent
   extends RiderAgent
   implements IProductRateAgent
 {
-  private asset: string = 'AC01.premium.json';
-  private premiumRate: any;
+  private config: any;
 
-  constructor(private rider: RiderProduct) {
+  constructor() {
     super();
-    this.load();
+    this.load('AC01.premium.json');
   }
 
-  private load() {
-    const data = readRiderRateFile(this.asset);
-    console.log(data);
-    this.premiumRate = data.premiumRate;
+  load(asset: string) {
+    const data = readRiderRateFile(asset);
+    this.config = data.premiumRate;
+    return this;
   }
 
-  calculate(input: {
-    insuredAge: number;
-    mode: number;
-    occupationType: string;
-    riderSum: number;
-  }): string {
+  calculate(prospect: Prospect, rider: RiderProduct): string {
+    const input = {
+      insuredAge: prospect.age,
+      mode: 1,
+      occupationType: prospect.occupationType,
+      riderSum: Number(rider.premium),
+    };
+
     try {
       let amount: string = '000000';
       let fact: string = '000';
@@ -37,8 +39,8 @@ export class AC01ProductRateAgent
         return '000000';
 
       // get amount and fact from rate file
-      amount = this.premiumRate['amtRate'][input.occupationType].value;
-      fact = this.premiumRate['pmFact'][input.mode].value;
+      amount = this.config['amtRate'][input.occupationType].value;
+      fact = this.config['pmFact'][input.mode].value;
 
       // logic calculate
       amount = String((Number(amount) / 10) * (Number(fact) / 100));
