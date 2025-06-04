@@ -31,22 +31,20 @@ export class PremiumController {
   calculatePremium(
     @Body() request: PremiumCalculationRequest,
   ): PremiumCalculationResponse {
-    const prospect = request.prospect;
-    const plans = request.plans;
-    const riders = request.riders;
-
     const storagePath = path.join(process.cwd(), 'storage.db');
 
     // build processors
-    const premiumProcessor = new PremiumProcessor(prospect, {
-      plans,
-      riders,
-    });
+    const premiumProcessor = new PremiumProcessor();
 
+    // load storage
     premiumProcessor.load(storagePath);
 
     // calculate premium
-    const result = premiumProcessor.process();
+    const result = premiumProcessor.process({
+      prospect: request.prospect,
+      plans: request.plans,
+      riders: request.riders,
+    });
 
     return result;
   }
