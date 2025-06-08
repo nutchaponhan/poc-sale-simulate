@@ -1,5 +1,10 @@
 import * as Database from 'better-sqlite3';
-import { ISQLiteAdapter } from '../lib/utility/db';
+
+interface ISQLiteAdapter {
+  initializeTables(): Promise<void>;
+  get(...params: any[]): Promise<any>;
+  close(): Promise<void>;
+}
 
 export class BetterSQLiteAdapter implements ISQLiteAdapter {
   private db: Database.Database;
@@ -9,15 +14,15 @@ export class BetterSQLiteAdapter implements ISQLiteAdapter {
     this.initializeTables();
   }
 
-  initializeTables(): void {
-    this.db.exec(
+  async initializeTables(): Promise<void> {
+    await this.db.exec(
       'CREATE TABLE IF NOT EXISTS config (code TEXT NOT NULL, type TEXT NOT NULL, value TEXT, PRIMARY KEY (code, type))',
     );
   }
 
-  get(...params: any[]): any {
+  async get(...params: any[]): Promise<any> {
     const [code, type] = params;
-    const stmt = this.db.prepare(
+    const stmt = await this.db.prepare(
       'SELECT value FROM config WHERE code = ? AND type = ?',
     );
 
@@ -32,7 +37,39 @@ export class BetterSQLiteAdapter implements ISQLiteAdapter {
     }
   }
 
-  close(): void {
-    this.db.close();
+  async close(): Promise<void> {
+    await this.db.close();
+  }
+}
+
+export class DB {
+  private static instance: DB | null = null;
+  private dbAdapter: ISQLiteAdapter;
+
+  private constructor(dbAdapter: ISQLiteAdapter) {
+    this.dbAdapter = dbAdapter;
+  }
+
+  static getInstance(adapter?: ISQLiteAdapter): DB {
+    if (!DB.instance) {
+      if (adapter) {
+        DB.instance = new DB(adapter);
+      } else {
+        throw new Error('Adapter is required');
+      }
+    }
+    return DB.instance;
+  }
+
+  async initializeTables(): Promise<void> {
+    await this.dbAdapter.initializeTables();
+  }
+
+  async get(...params: any[]): Promise<any> {
+    return this.dbAdapter.get(...params);
+  }
+
+  async close(): Promise<void> {
+    return this.dbAdapter.close();
   }
 }
