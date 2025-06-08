@@ -1,22 +1,52 @@
 {
-  "M": {
-    "49y": {
-      "age": "49y",
-      "value": 8
+  "premiums": [
+    {
+      "paymentCode": "1",
+      "minAge": 0,
+      "maxAge": 69,
+      "minPremium": 12000,
+      "maxPremium": 999999,
+      "step": 100,
+      "topupMinPremium": 0,
+      "conditionKey": null,
+      "conditionValue": []
     },
-    "90y": {
-      "age": "90y",
-      "value": 5
+    {
+      "paymentCode": "1",
+      "minAge": 0,
+      "maxAge": 69,
+      "minPremium": 6000,
+      "maxPremium": 999999,
+      "step": 100,
+      "topupMinPremium": 0,
+      "conditionKey": "RIDER",
+      "conditionValue": ["HDD"]
     }
-  },
-  "F": {
-    "49y": {
-      "age": "49y",
-      "value": 8
+  ],
+  "minSumAssure": [
+    {
+      "minAge": 0,
+      "maxAge": 49,
+      "minimum": 100000,
+      "rate": "8",
+      "conditionKey": null,
+      "conditionValue": []
     },
-    "90y": {
-      "age": "90y",
-      "value": 5
+    {
+      "minAge": 0,
+      "maxAge": 49,
+      "minimum": 50000,
+      "rate": "8",
+      "conditionKey": "RIDER",
+      "conditionValue": ["HDD"]
     }
-  }
+  ],
+  "maxSumAssureRate": [
+    {
+      "minAge": 0,
+      "maxAge": 20,
+      "gender": "M",
+      "rate": 100
+    }
+  ]
 }

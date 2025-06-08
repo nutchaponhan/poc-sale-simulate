@@ -1,17 +1,66 @@
 {
-  "name": "UWB",
-  "display": "ประกันควบการลงทุน UWB",
   "code": "UWB",
   "type": "UL",
-  "status": "active",
-  "age": {
-    "min": "1m",
-    "max": "99y"
-  },
-  "riders": ["AC01"],
-  "sum": {
-    "_comment": "mock min and max",
-    "min": 0,
-    "max": 999999999
-  }
+  "name": "",
+  "displayName": "",
+  "description": "",
+  "gender": "A",
+  "paymentType": "1",
+  "paymentPeriod": 80,
+  "coverageType": "1",
+  "coveragePeriod": 80,
+  "accidentFlag": false,
+  "disableFlag": false,
+  "discountFlag": false,
+  "matureAmount": 0,
+  "minAge": 0,
+  "maxAge": 80,
+  "pensionAge": 0,
+  "minSumAssure": 100000,
+  "maxSumAssure": 999999999,
+  "sumAssureStep": [
+    {
+      "minSumAssure": 100000,
+      "maxSumAssure": 999999999,
+      "step": 10000
+    }
+  ],
+  "lifePremium": 12000,
+  "accidentPremium": 0,
+  "dividendFlag": false,
+  "surrenderFlag": false,
+  "aplFlag": false,
+  "minPremium": 3000,
+  "maxPremium": 999999,
+  "interestRate": 0,
+  "matureInterestRate": 0,
+  "loanInterestRate": 0,
+  "deviod": false,
+  "policyType": "",
+  "coverageAmount": 0,
+  "calculateConfigType": null,
+  "paymentMode": "11110",
+  "payments": [
+    {
+      "code": "0",
+      "description": "รายเดือน"
+    },
+    {
+      "code": "1",
+      "description": "รายปี"
+    },
+    {
+      "code": "2",
+      "description": "ราย 6 เดือน"
+    },
+    {
+      "code": "4",
+      "description": "ราย 3 เดือน"
+    }
+  ],
+  "taxDeductionType": "Y",
+  "maxTaxDeduction": 30000,
+  "packageFlag": false,
+  "embeddedRiders": [],
+  "uwMethod": "NON_GIO"
 }

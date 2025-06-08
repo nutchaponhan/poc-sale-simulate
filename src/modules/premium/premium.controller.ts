@@ -2,17 +2,14 @@ import { Body, Controller, Post } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import * as path from 'path';
 
-import {
-  ProspectInput,
-  PlanInput,
-  RiderInput,
-  PremiumProcessor,
-} from 'src/lib/main';
+import { PremiumProcessor } from '../../lib/main';
+import { BetterSQLiteAdapter } from 'src/utility/sqlite.adapter';
+import { ProspectInput } from 'src/lib/core/prospect.input';
 
 interface PremiumCalculationRequest {
   prospect: ProspectInput;
-  plans: Array<PlanInput>;
-  riders: Array<RiderInput>;
+  plans: Array<any>;
+  riders: Array<any>;
 }
 
 type PremiumCalculationResponse = any;
@@ -37,7 +34,7 @@ export class PremiumController {
     const premiumProcessor = new PremiumProcessor();
 
     // load storage
-    premiumProcessor.load(storagePath);
+    premiumProcessor.load(new BetterSQLiteAdapter(storagePath));
 
     // calculate premium
     const result = premiumProcessor.process({
