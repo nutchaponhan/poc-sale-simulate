@@ -17,19 +17,19 @@ interface PremiumCalculationRequest {
   plan: {
     code: string;
     premium?: number;
-    assure?: number;
+    sumAssure?: number;
     previous?: {
       premium?: number;
-      assure?: number;
+      sumAssure?: number;
     };
   };
   rider: Array<{
     code: string;
     premium?: number;
-    assure?: number;
+    sumAssure?: number;
     previous?: {
       premium?: number;
-      assure?: number;
+      sumAssure?: number;
     };
   }>;
 }
@@ -67,25 +67,42 @@ export class PremiumController {
       paymentMode: request.prospect.paymentMode,
     };
 
+    const planProductRow = await db.get<{
+      code: string;
+      category: string;
+      value: any;
+    }>('SELECT * FROM plan_product WHERE code = ?', [request.plan.code]);
+
     const planInput: IPlanInput = {
-      ...request.plan,
-      productConfig: await db.get(request.plan.code, 'PRODUCT'),
-      rateConfig: await db.get(request.plan.code, 'RATE'),
+      code: request.plan.code,
+      data: JSON.parse(planProductRow.value),
+      current: {
+        premium: request.plan.premium,
+        sumAssure: request.plan.sumAssure,
+      },
       previous: request.plan.previous,
     };
 
     const ridersInput = await request.rider.reduce<
       Promise<Record<string, IRiderInput>>
     >(async (riders, r) => {
-      const riderProductConfig = await db.get(r.code, 'PRODUCT');
-      const riderRateConfig = await db.get(r.code, 'RATE');
+      const riderProductRow = await db.get<{
+        code: string;
+        category: string;
+        value: any;
+      }>('SELECT * FROM rider_product WHERE code = ?', [r.code]);
+
+      const riderProduct = JSON.parse(riderProductRow.value);
 
       return {
         ...(await riders),
         [r.code]: {
-          ...r,
-          productConfig: riderProductConfig,
-          rateConfig: riderRateConfig,
+          code: r.code,
+          data: riderProduct,
+          current: {
+            premium: r.premium,
+            sumAssure: r.sumAssure,
+          },
           previous: r.previous,
         },
       };

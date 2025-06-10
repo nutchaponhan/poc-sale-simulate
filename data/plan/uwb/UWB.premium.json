@@ -1,0 +1,420 @@
+{
+  "premium": [
+    {
+      "plan_code": "UWB",
+      "payment_mode": "1",
+      "min_age": 0,
+      "max_age": 69,
+      "min_premium": 12000,
+      "max_premium": 999999999,
+      "step": 100,
+      "step_topup_premium": 100,
+      "min_topup_premium": 1000,
+      "condition": [
+        {
+          "plan_code": "UWB",
+          "payment_mode": "1",
+          "min_age": 0,
+          "max_age": 69,
+          "min_premium": 6000,
+          "max_premium": 999999999,
+          "step": 100,
+          "step_topup_premium": 100,
+          "min_topup_premium": 500,
+          "condition_key": "RIDER",
+          "condition_value": "{HDD}"
+        }
+      ]
+    },
+    {
+      "plan_code": "UWB",
+      "payment_mode": "1",
+      "min_age": 70,
+      "max_age": 70,
+      "min_premium": 12000,
+      "max_premium": 999999999,
+      "step": 100,
+      "step_topup_premium": 100,
+      "min_topup_premium": 1000,
+      "condition": [
+        {
+          "plan_code": "UWB",
+          "payment_mode": "1",
+          "min_age": 70,
+          "max_age": 70,
+          "min_premium": 12000,
+          "max_premium": 999999999,
+          "step": 100,
+          "step_topup_premium": 100,
+          "min_topup_premium": 500,
+          "condition_key": "RIDER",
+          "condition_value": "{HDD}"
+        }
+      ]
+    },
+    {
+      "plan_code": "UWB",
+      "payment_mode": "1",
+      "min_age": 71,
+      "max_age": 75,
+      "min_premium": 24000,
+      "max_premium": 999999999,
+      "step": 100,
+      "step_topup_premium": 100,
+      "min_topup_premium": 1000,
+      "condition": [
+        {
+          "plan_code": "UWB",
+          "payment_mode": "1",
+          "min_age": 71,
+          "max_age": 75,
+          "min_premium": 12000,
+          "max_premium": 999999999,
+          "step": 100,
+          "step_topup_premium": 100,
+          "min_topup_premium": 500,
+          "condition_key": "RIDER",
+          "condition_value": "{HDD}"
+        }
+      ]
+    },
+    {
+      "plan_code": "UWB",
+      "payment_mode": "1",
+      "min_age": 76,
+      "max_age": 80,
+      "min_premium": 30000,
+      "max_premium": 999999999,
+      "step": 100,
+      "step_topup_premium": 100,
+      "min_topup_premium": 1000,
+      "condition": [
+        {
+          "plan_code": "UWB",
+          "payment_mode": "1",
+          "min_age": 76,
+          "max_age": 80,
+          "min_premium": 30000,
+          "max_premium": 999999999,
+          "step": 100,
+          "step_topup_premium": 100,
+          "min_topup_premium": 500,
+          "condition_key": "RIDER",
+          "condition_value": "{HDD}"
+        }
+      ]
+    },
+    {
+      "plan_code": "UWB",
+      "payment_mode": "2",
+      "min_age": 0,
+      "max_age": 69,
+      "min_premium": 6000,
+      "max_premium": 999999999,
+      "step": 100,
+      "step_topup_premium": 100,
+      "min_topup_premium": 1000,
+      "condition": [
+        {
+          "plan_code": "UWB",
+          "payment_mode": "2",
+          "min_age": 0,
+          "max_age": 69,
+          "min_premium": 3000,
+          "max_premium": 999999999,
+          "step": 100,
+          "step_topup_premium": 100,
+          "min_topup_premium": 500,
+          "condition_key": "RIDER",
+          "condition_value": "{HDD}"
+        }
+      ]
+    },
+    {
+      "plan_code": "UWB",
+      "payment_mode": "2",
+      "min_age": 70,
+      "max_age": 70,
+      "min_premium": 6000,
+      "max_premium": 999999999,
+      "step": 100,
+      "step_topup_premium": 100,
+      "min_topup_premium": 1000,
+      "condition": [
+        {
+          "plan_code": "UWB",
+          "payment_mode": "2",
+          "min_age": 70,
+          "max_age": 70,
+          "min_premium": 6000,
+          "max_premium": 999999999,
+          "step": 100,
+          "step_topup_premium": 100,
+          "min_topup_premium": 500,
+          "condition_key": "RIDER",
+          "condition_value": "{HDD}"
+        }
+      ]
+    },
+    {
+      "plan_code": "UWB",
+      "payment_mode": "2",
+      "min_age": 71,
+      "max_age": 75,
+      "min_premium": 12000,
+      "max_premium": 999999999,
+      "step": 100,
+      "step_topup_premium": 100,
+      "min_topup_premium": 1000,
+      "condition": [
+        {
+          "plan_code": "UWB",
+          "payment_mode": "2",
+          "min_age": 71,
+          "max_age": 75,
+          "min_premium": 6000,
+          "max_premium": 999999999,
+          "step": 100,
+          "step_topup_premium": 100,
+          "min_topup_premium": 500,
+          "condition_key": "RIDER",
+          "condition_value": "{HDD}"
+        }
+      ]
+    },
+    {
+      "plan_code": "UWB",
+      "payment_mode": "2",
+      "min_age": 76,
+      "max_age": 80,
+      "min_premium": 15000,
+      "max_premium": 999999999,
+      "step": 100,
+      "step_topup_premium": 100,
+      "min_topup_premium": 1000,
+      "condition": [
+        {
+          "plan_code": "UWB",
+          "payment_mode": "2",
+          "min_age": 76,
+          "max_age": 80,
+          "min_premium": 15000,
+          "max_premium": 999999999,
+          "step": 100,
+          "step_topup_premium": 100,
+          "min_topup_premium": 500,
+          "condition_key": "RIDER",
+          "condition_value": "{HDD}"
+        }
+      ]
+    },
+    {
+      "plan_code": "UWB",
+      "payment_mode": "4",
+      "min_age": 0,
+      "max_age": 69,
+      "min_premium": 3000,
+      "max_premium": 999999999,
+      "step": 100,
+      "step_topup_premium": 100,
+      "min_topup_premium": 1000,
+      "condition": [
+        {
+          "plan_code": "UWB",
+          "payment_mode": "4",
+          "min_age": 0,
+          "max_age": 69,
+          "min_premium": 1500,
+          "max_premium": 999999999,
+          "step": 100,
+          "step_topup_premium": 100,
+          "min_topup_premium": 500,
+          "condition_key": "RIDER",
+          "condition_value": "{HDD}"
+        }
+      ]
+    },
+    {
+      "plan_code": "UWB",
+      "payment_mode": "4",
+      "min_age": 70,
+      "max_age": 70,
+      "min_premium": 3000,
+      "max_premium": 999999999,
+      "step": 100,
+      "step_topup_premium": 100,
+      "min_topup_premium": 1000,
+      "condition": [
+        {
+          "plan_code": "UWB",
+          "payment_mode": "4",
+          "min_age": 70,
+          "max_age": 70,
+          "min_premium": 3000,
+          "max_premium": 999999999,
+          "step": 100,
+          "step_topup_premium": 100,
+          "min_topup_premium": 500,
+          "condition_key": "RIDER",
+          "condition_value": "{HDD}"
+        }
+      ]
+    },
+    {
+      "plan_code": "UWB",
+      "payment_mode": "4",
+      "min_age": 71,
+      "max_age": 75,
+      "min_premium": 6000,
+      "max_premium": 999999999,
+      "step": 100,
+      "step_topup_premium": 100,
+      "min_topup_premium": 1000,
+      "condition": [
+        {
+          "plan_code": "UWB",
+          "payment_mode": "4",
+          "min_age": 71,
+          "max_age": 75,
+          "min_premium": 3000,
+          "max_premium": 999999999,
+          "step": 100,
+          "step_topup_premium": 100,
+          "min_topup_premium": 500,
+          "condition_key": "RIDER",
+          "condition_value": "{HDD}"
+        }
+      ]
+    },
+    {
+      "plan_code": "UWB",
+      "payment_mode": "4",
+      "min_age": 76,
+      "max_age": 80,
+      "min_premium": 7500,
+      "max_premium": 999999999,
+      "step": 100,
+      "step_topup_premium": 100,
+      "min_topup_premium": 1000,
+      "condition": [
+        {
+          "plan_code": "UWB",
+          "payment_mode": "4",
+          "min_age": 76,
+          "max_age": 80,
+          "min_premium": 7500,
+          "max_premium": 999999999,
+          "step": 100,
+          "step_topup_premium": 100,
+          "min_topup_premium": 500,
+          "condition_key": "RIDER",
+          "condition_value": "{HDD}"
+        }
+      ]
+    },
+    {
+      "plan_code": "UWB",
+      "payment_mode": "0",
+      "min_age": 0,
+      "max_age": 69,
+      "min_premium": 1000,
+      "max_premium": 999999999,
+      "step": 100,
+      "step_topup_premium": 100,
+      "min_topup_premium": 1000,
+      "condition": [
+        {
+          "plan_code": "UWB",
+          "payment_mode": "0",
+          "min_age": 0,
+          "max_age": 69,
+          "min_premium": 500,
+          "max_premium": 999999999,
+          "step": 100,
+          "step_topup_premium": 100,
+          "min_topup_premium": 500,
+          "condition_key": "RIDER",
+          "condition_value": "{HDD}"
+        }
+      ]
+    },
+    {
+      "plan_code": "UWB",
+      "payment_mode": "0",
+      "min_age": 70,
+      "max_age": 70,
+      "min_premium": 1000,
+      "max_premium": 999999999,
+      "step": 100,
+      "step_topup_premium": 100,
+      "min_topup_premium": 1000,
+      "condition": [
+        {
+          "plan_code": "UWB",
+          "payment_mode": "0",
+          "min_age": 70,
+          "max_age": 70,
+          "min_premium": 1000,
+          "max_premium": 999999999,
+          "step": 100,
+          "step_topup_premium": 100,
+          "min_topup_premium": 500,
+          "condition_key": "RIDER",
+          "condition_value": "{HDD}"
+        }
+      ]
+    },
+    {
+      "plan_code": "UWB",
+      "payment_mode": "0",
+      "min_age": 71,
+      "max_age": 75,
+      "min_premium": 2000,
+      "max_premium": 999999999,
+      "step": 100,
+      "step_topup_premium": 100,
+      "min_topup_premium": 1000,
+      "condition": [
+        {
+          "plan_code": "UWB",
+          "payment_mode": "0",
+          "min_age": 71,
+          "max_age": 75,
+          "min_premium": 1000,
+          "max_premium": 999999999,
+          "step": 100,
+          "step_topup_premium": 100,
+          "min_topup_premium": 500,
+          "condition_key": "RIDER",
+          "condition_value": "{HDD}"
+        }
+      ]
+    },
+    {
+      "plan_code": "UWB",
+      "payment_mode": "0",
+      "min_age": 76,
+      "max_age": 80,
+      "min_premium": 2500,
+      "max_premium": 999999999,
+      "step": 100,
+      "step_topup_premium": 100,
+      "min_topup_premium": 1000,
+      "condition": [
+        {
+          "plan_code": "UWB",
+          "payment_mode": "0",
+          "min_age": 76,
+          "max_age": 80,
+          "min_premium": 2500,
+          "max_premium": 999999999,
+          "step": 100,
+          "step_topup_premium": 100,
+          "min_topup_premium": 500,
+          "condition_key": "RIDER",
+          "condition_value": "{HDD}"
+        }
+      ]
+    }
+  ]
+}

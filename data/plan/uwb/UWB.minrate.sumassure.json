@@ -1,0 +1,96 @@
+{
+  "minSumAssureRate": [
+    {
+      "id": null,
+      "plan_code": "UWB",
+      "gender": "M",
+      "min_age": 0,
+      "max_age": 49,
+      "min_sumassure": 100000,
+      "rate": 8,
+      "condition_key": null,
+      "condition_value": null,
+      "condition": [
+        {
+          "id": null,
+          "plan_code": "UWB",
+          "gender": "M",
+          "min_age": 0,
+          "max_age": 49,
+          "min_sumassure": 50000,
+          "rate": 8,
+          "condition_key": "RIDER",
+          "condition_value": ["HDD"]
+        }
+      ]
+    },
+    {
+      "id": null,
+      "plan_code": "UWB",
+      "gender": "M",
+      "min_age": 50,
+      "max_age": 80,
+      "min_sumassure": 100000,
+      "rate": 5,
+      "condition_key": null,
+      "condition_value": null
+    },
+    {
+      "id": null,
+      "plan_code": "UWB",
+      "gender": "M",
+      "min_age": 50,
+      "max_age": 90,
+      "min_sumassure": 50000,
+      "rate": 5,
+      "condition_key": "RIDER",
+      "condition_value": ["HDD"]
+    },
+    {
+      "id": null,
+      "plan_code": "UWB",
+      "gender": "F",
+      "min_age": 0,
+      "max_age": 49,
+      "min_sumassure": 100000,
+      "rate": 8,
+      "condition_key": null,
+      "condition_value": null,
+      "condition": [
+        {
+          "id": null,
+          "plan_code": "UWB",
+          "gender": "F",
+          "min_age": 0,
+          "max_age": 49,
+          "min_sumassure": 50000,
+          "rate": 8,
+          "condition_key": "RIDER",
+          "condition_value": ["HDD"]
+        }
+      ]
+    },
+    {
+      "id": null,
+      "plan_code": "UWB",
+      "gender": "F",
+      "min_age": 50,
+      "max_age": 80,
+      "min_sumassure": 100000,
+      "rate": 5,
+      "condition_key": null,
+      "condition_value": null
+    },
+    {
+      "id": null,
+      "plan_code": "UWB",
+      "gender": "F",
+      "min_age": 50,
+      "max_age": 90,
+      "min_sumassure": 50000,
+      "rate": 5,
+      "condition_key": "RIDER",
+      "condition_value": ["HDD"]
+    }
+  ]
+}

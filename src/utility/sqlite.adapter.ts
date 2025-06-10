@@ -16,21 +16,28 @@ export class BetterSQLiteAdapter implements ISQLiteAdapter {
 
   async initializeTables(): Promise<void> {
     await this.db.exec(
-      'CREATE TABLE IF NOT EXISTS config (code TEXT NOT NULL, type TEXT NOT NULL, value TEXT, PRIMARY KEY (code, type))',
+      `CREATE TABLE IF NOT EXISTS plan_product (
+        code TEXT NOT NULL,
+        category TEXT NOT NULL,
+        value TEXT,
+        PRIMARY KEY (code, category)
+      );`,
+    );
+    await this.db.exec(
+      `CREATE TABLE IF NOT EXISTS rider_product (
+        code TEXT NOT NULL,
+        category TEXT NOT NULL,
+        value TEXT,
+        PRIMARY KEY (code, category)
+      );`,
     );
   }
 
-  async get(...params: any[]): Promise<any> {
-    const [code, type] = params;
-    const stmt = await this.db.prepare(
-      'SELECT value FROM config WHERE code = ? AND type = ?',
-    );
-
-    const row = stmt.get(code, type);
-    const result = row?.value ?? null;
-
+  async get(sql: string, params: any[]): Promise<any> {
+    const stmt = await this.db.prepare(sql);
+    const row = stmt.get(...params);
     try {
-      return result ? JSON.parse(result) : null;
+      return row;
     } catch (err) {
       console.error('JSON parse error:', err);
       return null;
@@ -65,7 +72,7 @@ export class DB {
     await this.dbAdapter.initializeTables();
   }
 
-  async get(...params: any[]): Promise<any> {
+  async get<T>(...params: any[]): Promise<T> {
     return this.dbAdapter.get(...params);
   }
 

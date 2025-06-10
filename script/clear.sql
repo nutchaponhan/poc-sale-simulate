@@ -1,5 +1,7 @@
 BEGIN TRANSACTION;
 
-DROP TABLE config;
+DROP TABLE plan_product;
+
+DROP TABLE rider_product;
 
 COMMIT;
