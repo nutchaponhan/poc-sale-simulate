@@ -10,23 +10,29 @@ interface PremiumCalculationRequest {
   prospect: {
     gender: 'M' | 'F';
     birthDate: string;
-    occgroup: 2;
-    occCode: '02';
-    paymentMode: 4;
+    occType: string;
+    occCode: string;
+    paymentMode: string;
   };
   plan: {
     code: string;
-    premium?: number;
-    sumAssure?: number;
+    change: {
+      premium?: number;
+      sumAssure?: number;
+      topup?: number;
+    };
     previous?: {
       premium?: number;
       sumAssure?: number;
+      topup?: number;
     };
   };
   rider: Array<{
     code: string;
-    premium?: number;
-    sumAssure?: number;
+    change: {
+      premium?: number;
+      sumAssure?: number;
+    };
     previous?: {
       premium?: number;
       sumAssure?: number;
@@ -64,7 +70,7 @@ export class PremiumController {
       gender: request.prospect.gender,
       birthDate: request.prospect.birthDate,
       occCode: request.prospect.occCode,
-      occGroup: request.prospect.occgroup,
+      occType: request.prospect.occType,
       paymentMode: request.prospect.paymentMode,
     };
 
@@ -77,10 +83,7 @@ export class PremiumController {
     const planInput: IPlanInput = {
       code: request.plan.code,
       data: JSON.parse(planProductRow.value),
-      current: {
-        premium: request.plan.premium,
-        sumAssure: request.plan.sumAssure,
-      },
+      current: request.plan.change,
       previous: request.plan.previous,
     };
 
@@ -100,10 +103,7 @@ export class PremiumController {
         [r.code]: {
           code: r.code,
           data: riderProduct,
-          current: {
-            premium: r.premium,
-            sumAssure: r.sumAssure,
-          },
+          current: r.change,
           previous: r.previous,
         },
       };
