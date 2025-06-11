@@ -11,7 +11,7 @@ interface PremiumCalculationRequest {
     gender: 'M' | 'F';
     birthDate: string;
     occgroup: 2;
-    occupationType: '2';
+    occCode: '02';
     paymentMode: 4;
   };
   plan: {
@@ -63,7 +63,8 @@ export class PremiumController {
     const prospectInput: IProspectInput = {
       gender: request.prospect.gender,
       birthDate: request.prospect.birthDate,
-      occupationType: request.prospect.occupationType,
+      occCode: request.prospect.occCode,
+      occGroup: request.prospect.occgroup,
       paymentMode: request.prospect.paymentMode,
     };
 

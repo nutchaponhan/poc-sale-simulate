@@ -1,0 +1,90 @@
+{
+  "riderCode": "AC03",
+  "riderName": "อ.3",
+  "riderFullName": "",
+  "riderGroup": "ACCIDENT",
+  "calPattern": "2",
+  "isActive": "Y",
+  "rule": {
+    "requireRider": ["AC01", "AC02"],
+    "denyRider": []
+  },
+  "age": {
+    "min": "5y",
+    "max": "64y"
+  },
+  "stepList": [
+    {
+      "step": "1",
+      "value": "10000"
+    }
+  ],
+  "conditionList": [
+    {
+      "agentPermission": "Normal",
+      "minSum": "0",
+      "calMaxConditionList": [
+        {
+          "age": null,
+          "haveOccGroup": false,
+          "occGroup": null,
+          "calMaxValue": {
+            "multiplyPlanSum": null,
+            "maxRiderSum1": null,
+            "multipleRider": null,
+            "maxRiderSum2": null,
+            "percent1": "15%",
+            "value1": "AC01,AC02",
+            "percent2": "10%",
+            "value2": "sum",
+            "maxRiderSum": "100000"
+          }
+        }
+      ]
+    },
+    {
+      "agentPermission": "Q UP",
+      "minSum": "0",
+      "calMaxConditionList": [
+        {
+          "age": null,
+          "haveOccGroup": false,
+          "occGroup": null,
+          "calMaxValue": {
+            "multiplyPlanSum": null,
+            "maxRiderSum1": null,
+            "multipleRider": null,
+            "maxRiderSum2": null,
+            "percent1": "15%",
+            "value1": "AC01,AC02",
+            "percent2": "20%",
+            "value2": "sum",
+            "maxRiderSum": "200000"
+          }
+        }
+      ]
+    },
+    {
+      "agentPermission": "Top UP",
+      "minSum": "0",
+      "calMaxConditionList": [
+        {
+          "age": null,
+          "haveOccGroup": false,
+          "occGroup": null,
+          "calMaxValue": {
+            "multiplyPlanSum": null,
+            "maxRiderSum1": null,
+            "multipleRider": null,
+            "maxRiderSum2": null,
+            "percent1": "15%",
+            "value1": "AC01,AC02",
+            "percent2": "20%",
+            "value2": "sum",
+            "maxRiderSum": "200000"
+          }
+        }
+      ]
+    }
+  ]
+}

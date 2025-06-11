@@ -1,0 +1,50 @@
+{
+  "riderCode": "KG1",
+  "riderName": "ฆจ.1",
+  "riderFullName": "",
+  "riderGroup": "ACCIDENT",
+  "calPattern": "1",
+  "isActive": "Y",
+  "rule": {
+    "requireRider": ["AC01"],
+    "denyRider": []
+  },
+  "age": {
+    "min": "1m",
+    "max": "64y"
+  },
+  "stepList": [
+    {
+      "step": "50000",
+      "value": "500000"
+    },
+    {
+      "step": "100000",
+      "value": "500000"
+    }
+  ],
+  "conditionList": [
+    {
+      "agentPermission": "ALL",
+      "minSum": "AC01",
+      "calMaxConditionList": [
+        {
+          "age": null,
+          "haveOccGroup": false,
+          "occGroup": null,
+          "calMaxValue": {
+            "max_multiple_sum": 99,
+            "maxRiderSum1": "4000000",
+            "multipleRider": ["KG2"],
+            "maxRiderSum2": "4000000",
+            "percent1": null,
+            "value1": null,
+            "percent2": null,
+            "value2": null,
+            "maxRiderSum": null
+          }
+        }
+      ]
+    }
+  ]
+}
