@@ -16,11 +16,11 @@
   "stepList": [
     {
       "step": "50000",
-      "value": "500000"
+      "value": "50000"
     },
     {
-      "step": "50000",
-      "value": "100000"
+      "step": "100000",
+      "value": "500000"
     }
   ],
   "conditionList": [

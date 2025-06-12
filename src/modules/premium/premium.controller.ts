@@ -4,7 +4,7 @@ import * as path from 'path';
 
 import { BetterSQLiteAdapter, DB } from 'src/utility/sqlite.adapter';
 import { Processor } from '../../lib/main';
-import { IPlanInput, IProspectInput, IRiderInput } from '../../lib/interface';
+import { IPlanInput, IProspectInput } from '../../lib/interface';
 
 interface PremiumCalculationRequest {
   prospect: {
@@ -16,12 +16,12 @@ interface PremiumCalculationRequest {
   };
   plan: {
     code: string;
-    change: {
+    change?: {
       premium?: number;
       sumAssure?: number;
       topup?: number;
     };
-    previous?: {
+    current?: {
       premium?: number;
       sumAssure?: number;
       topup?: number;
@@ -29,11 +29,11 @@ interface PremiumCalculationRequest {
   };
   rider: Array<{
     code: string;
-    change: {
+    change?: {
       premium?: number;
       sumAssure?: number;
     };
-    previous?: {
+    current?: {
       premium?: number;
       sumAssure?: number;
     };
@@ -83,12 +83,12 @@ export class PremiumController {
     const planInput: IPlanInput = {
       code: request.plan.code,
       data: JSON.parse(planProductRow.value),
-      current: request.plan.change,
-      previous: request.plan.previous,
+      change: request.plan.change,
+      current: request.plan.current,
     };
 
     const ridersInput = await request.rider.reduce<
-      Promise<Record<string, IRiderInput>>
+      Promise<Record<string, any>>
     >(async (riders, r) => {
       const riderProductRow = await db.get<{
         code: string;
@@ -103,8 +103,8 @@ export class PremiumController {
         [r.code]: {
           code: r.code,
           data: riderProduct,
-          current: r.change,
-          previous: r.previous,
+          change: r.change,
+          current: r.current,
         },
       };
     }, Promise.resolve({}));

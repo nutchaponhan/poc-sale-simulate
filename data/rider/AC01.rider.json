@@ -16,7 +16,7 @@
   "stepList": [
     {
       "step": "50000",
-      "value": "500000"
+      "value": "50000"
     },
     {
       "step": "100000",
@@ -33,7 +33,7 @@
           "haveOccGroup": false,
           "occGroup": null,
           "calMaxValue": {
-            "max_multiple_sum": 1,
+            "multiplyPlanSum": 1,
             "maxRiderSum1": "1000000",
             "multipleRider": null,
             "maxRiderSum2": null,
@@ -49,7 +49,7 @@
           "haveOccGroup": false,
           "occGroup": null,
           "calMaxValue": {
-            "max_multiple_sum": 1,
+            "multiplyPlanSum": 1,
             "maxRiderSum1": "1000000",
             "multipleRider": ["AC02"],
             "maxRiderSum2": null,
@@ -65,7 +65,7 @@
           "haveOccGroup": true,
           "occGroup": {
             "occ1": {
-              "max_multiple_sum": 2,
+              "multiplyPlanSum": 2,
               "maxRiderSum1": "4000000",
               "multipleRider": ["AC02"],
               "maxRiderSum2": null,
@@ -76,7 +76,7 @@
               "maxRiderSum": null
             },
             "occ2": {
-              "max_multiple_sum": 3,
+              "multiplyPlanSum": 3,
               "maxRiderSum1": "8000000",
               "multipleRider": ["AC02"],
               "maxRiderSum2": null,
@@ -87,7 +87,7 @@
               "maxRiderSum": null
             },
             "occ3": {
-              "max_multiple_sum": 6,
+              "multiplyPlanSum": 6,
               "maxRiderSum1": "30000000",
               "multipleRider": ["AC02"],
               "maxRiderSum2": null,
@@ -98,7 +98,7 @@
               "maxRiderSum": null
             },
             "occDefault": {
-              "max_multiple_sum": 1,
+              "multiplyPlanSum": 1,
               "maxRiderSum1": "1000000",
               "multipleRider": ["AC02"],
               "maxRiderSum2": null,

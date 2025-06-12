@@ -15,8 +15,8 @@
   },
   "stepList": [
     {
-      "step": "1",
-      "value": "10000"
+      "step": "10000",
+      "value": "999999999"
     }
   ],
   "conditionList": [
