@@ -13,6 +13,7 @@ interface PremiumCalculationRequest {
     occType: string;
     occCode: string;
     paymentMode: string;
+    permission: string;
   };
   plan: {
     code: string;
@@ -72,6 +73,7 @@ export class PremiumController {
       occCode: request.prospect.occCode,
       occType: request.prospect.occType,
       paymentMode: request.prospect.paymentMode,
+      permission: request.prospect.permission,
     };
 
     const planProductRow = await db.get<{
