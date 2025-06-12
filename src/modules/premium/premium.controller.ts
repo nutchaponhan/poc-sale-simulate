@@ -87,7 +87,7 @@ export class PremiumController {
       current: request.plan.current,
     };
 
-    const ridersInput = await request.rider.reduce<
+    const ridersInput = await request?.rider?.reduce<
       Promise<Record<string, any>>
     >(async (riders, r) => {
       const riderProductRow = await db.get<{
