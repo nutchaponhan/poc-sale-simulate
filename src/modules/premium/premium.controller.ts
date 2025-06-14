@@ -1,6 +1,7 @@
+// import * as fs from 'fs';
+import * as path from 'path';
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import * as path from 'path';
 
 import { BetterSQLiteAdapter, DB } from 'src/utility/sqlite.adapter';
 import { Processor } from '../../lib/main';
@@ -111,12 +112,14 @@ export class PremiumController {
       };
     }, Promise.resolve({}));
 
-    // calculate premium
-    const result = processor.process({
+    const input = {
       prospect: prospectInput,
       plan: planInput,
       rider: ridersInput,
-    });
+    };
+
+    // calculate premium
+    const result = processor.process(input);
 
     return result;
   }
